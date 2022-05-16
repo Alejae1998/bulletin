@@ -1,1 +1,13 @@
-/* add home page styles here */
+#bulletin-board {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    background-image: url(../assets/bulletin.webp);
+    height: 75vh;
+    width: 75vw;
+    border: 10px solid black;
+    min-width: calc(10em + 40px);
+    overflow: scroll;
+}
