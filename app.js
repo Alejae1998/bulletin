@@ -8,12 +8,12 @@ const createForm = document.getElementById('create-button');
 
 logInForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    location.replace('/auth');
+    location.replace('/second-page');
 });
 
 createForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    location.replace('/auth');
+    location.replace('/second-page');
 });
 
 // set event listeners

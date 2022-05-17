@@ -5,9 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Create new post</title>
 </head>
 <body>
-  
+  <form id="new-post">
+    <label for="tittle">Tittle</label>
+    <input type="text" name="tittle" id="tittle" />
+    <label for="description">Description</label>
+    <input type="text" name="description" id="description" />
+    <label for="contact">Contact</label>
+    <input type="text" name="contact" id="contact" />
+    <button>Submit</button>
+    <button id="logout">Logout</button>
+
+  </form>
+  <script src="./create.js"></script>
 </body>
 </html>

@@ -10,7 +10,47 @@ export function getUser() {
 }
 
 export async function redirectIfLoggedIn() {
-    location.replace('/auth');
+    location.replace('/second-page');
+}
+
+export async function signupUser(email, password) {
+    const response = await client.auth.signUp({ email, password });
+    if (response.user) {
+        return response.user;
+    }
+}
+
+export async function signInUser(email, password) {
+    const response = await client.auth.signIn({ email, password });
+    return response.user;
+}
+
+export async function checkAuth() {
+    const user = getUser();
+
+    if (!user) location.replace('/create');
+}
+
+export async function fetchPosts() {
+    const response = await client.from('post').select('*');
+    return response.data;
+}
+
+export async function createNewPost(post) {
+    const response = await client.form('post').insert(post);
+    if (response.data) {
+        return response.data;
+    } else {
+        console.error(response.error);
+    }
+}
+export async function logout() {
+    await client.auth.signOut();
+    return (window.location.href = '/');
+}
+export async function fetchPost() {
+    const response = await client.form('post').select('*');
+    return response.data;
 }
 // export async functions signUp and signIn
 // export async check auth
