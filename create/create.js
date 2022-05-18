@@ -2,6 +2,7 @@ import { checkAuth, createPost, logout } from '../fetch-utils.js';
 
 checkAuth();
 
+
 const logoutbtn = document.getElementById('logout');
 
 logoutbtn.addEventListener('click', () => {
@@ -19,10 +20,10 @@ const postItForm = document.getElementById('post-in-form');
 postItForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(postItForm);
-    const createPost ({
+    const newPost = {
         tittle: data.get('tittle'),
         description: data.get('description'),
         contact: data.get('contact'),
-    });
-    location.replace('/');
+    };
+    const resp = await createPost(newPost);
 });

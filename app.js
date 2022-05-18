@@ -1,6 +1,6 @@
 // import functions and grab DOM elements
-import { getPosts, getUser, logout } from "./fetch-utils.js";
-import { renderPostIt } from "./render-utils.js";
+import { getPosts, getUser, logout } from './fetch-utils.js';
+import { renderPostIt } from './render-utils.js';
 
 // let state
 
@@ -10,6 +10,7 @@ const bulletin = document.getElementById('bulletin-board');
 
 window.addEventListener('load', async () => {
     const user = await getUser();
+    console.log(user);
 
     if (user) {
         logInButton.addEventListener('click', logout);

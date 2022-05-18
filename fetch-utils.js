@@ -11,7 +11,8 @@ export function getUser() {
 
 export async function checkAuth() {
     const user = await getUser();
-    if (!user) location.replace('/second-page');
+    console.log(user);
+    // if (!user) location.replace('/second-page');
 }
 
 export async function redirectIfLoggedIn() {
@@ -39,16 +40,19 @@ export async function logout() {
 }
 
 function checkError({ data, error }) {
+
     return error ? console.error(error) : data;
 }
 
 export async function getPosts() {
-    const resp = await client.from('posts').select('*');
+    const resp = await client.from('bulletin_board').select('*');
+    console.log(resp);
+
     return checkError(resp);
 }
 
 export async function createPost(post) {
-    const resp = await client.from('posts').insert(post);
+    const resp = await client.from('bulletin_board').insert(post);
     return checkError(resp);
 }
 
