@@ -11,7 +11,7 @@ const bulletin = document.getElementById('bulletin-board');
 
 window.addEventListener('load', async () => {
     const user = await getUser();
-    console.log(user);
+
 
     if (user) {
         logInButton.addEventListener('click', logout);
@@ -40,7 +40,6 @@ window.addEventListener('load', async () => {
 async function loadData() {
     const posts = await fetchPost();
     for (let post of posts) {
-      console.log(post);
         const postDiv = renderPostIt(post);
         bulletin.append(postDiv);
 

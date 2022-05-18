@@ -1,5 +1,4 @@
 export function renderPostIt(post) {
-  console.log(post);
     const div = document.createElement('div');
     div.classList.add('post-it');
 
