@@ -12,7 +12,6 @@ export function getUser() {
 export async function checkAuth() {
     const user = await getUser();
     if (!user) location.replace('/create');
-    console.log(user);
     // if (!user) location.replace('/second-page');
 }
 
@@ -54,7 +53,7 @@ export async function fetchPost() {
 export async function createPost(post) {
   
     const resp = await client.from('bulletin_board').insert(post);
-    console.log(resp);
+
     return resp.data;
     
 }

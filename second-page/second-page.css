@@ -1,3 +1,10 @@
+body {
+  background-color: aquamarine;
+  justify-content: center;
+  padding-top: 150px;
+}
+
+
 .auth-main {
     display: flex;
     flex-direction: row;

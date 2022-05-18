@@ -3,6 +3,7 @@ import { checkAuth, fetchPost, getUser, logout } from './fetch-utils.js';
 import { renderPostIt } from './render-utils.js';
 
 // let state
+loadData();
 
 const logInButton = document.getElementById('log-in');
 const createButton = document.getElementById('create-button');
@@ -27,13 +28,25 @@ window.addEventListener('load', async () => {
         if (user) window.location.href = '/create';
         location.replace('/create');
     });
-
+    
+    
     const posts = await fetchPost();
     for (let post of posts) {
         const postDiv = renderPostIt(post);
         bulletin.append(postDiv);
     }
 });
+
+async function loadData() {
+    const posts = await fetchPost();
+    for (let post of posts) {
+      console.log(post);
+        const postDiv = renderPostIt(post);
+        bulletin.append(postDiv);
+
+    }
+}
+
 
 // logInForm.addEventListener('submit', async (e) => {
     // e.preventDefault();

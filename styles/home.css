@@ -1,8 +1,11 @@
+header
+
+
 body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-end;
     align-content: flex-start;
     background-image: url(../assets/bulletin.webp);
     height: 75vh;
@@ -10,4 +13,35 @@ body {
     min-width: calc(10em + 40px);
     overflow: scroll;
     background-repeat: no-repeat;
+}
+
+.post-it {
+    color: rgb(0, 0, 0);
+    height: 10em;
+    width: 10em;
+    background: rgb(186, 106, 211);
+    padding: 50px;
+    box-shadow: 5px 5px 7px rgba(158, 56, 56, 0.7);
+    margin: 10px;
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.post-it h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.post-it p {
+    font-size: 0.75rem;
+    font-weight: normal;
+    margin: 0;
+    font-family: 'Shadows Into Light Two', cursive;
+}
+
+.post-it .contact {
+    font-size: 0.5rem;
 }
