@@ -1,16 +1,28 @@
-import { createNewPost } from '../fetch-utils.js';
+import { checkAuth, createPost, logout } from '../fetch-utils.js';
 
-const form = document.getElementById('new-post');
+checkAuth();
+
+const logoutbtn = document.getElementById('logout');
+
+logoutbtn.addEventListener('click', () => {
+    logout();
+});
+
+const homebtn = document.getElementById('home');
+homebtn.addEventListener('click', () => {
+    location.replace('/');
+});
 
 
-form.addEventListener('submit', async (e) => {
+const postItForm = document.getElementById('post-in-form');
+
+postItForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const data = new FormData(form);
-    const newPost = {
+    const data = new FormData(postItForm);
+    const createPost ({
         tittle: data.get('tittle'),
         description: data.get('description'),
         contact: data.get('contact'),
-    };
-    const resp = await createNewPost(newPost);
+    });
+    location.replace('/');
 });
-

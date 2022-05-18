@@ -1,20 +1,50 @@
 // import functions and grab DOM elements
-import { redirectIfLoggedIn } from "./fetch-utils.js";
+import { getPosts, getUser, logout } from "./fetch-utils.js";
+import { renderPostIt } from "./render-utils.js";
 
 // let state
 
-const logInForm = document.getElementById('log-in');
-const createForm = document.getElementById('create-button');
+const logInButton = document.getElementById('log-in');
+const createButton = document.getElementById('create-button');
+const bulletin = document.getElementById('bulletin-board');
 
-logInForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    location.replace('/second-page');
+window.addEventListener('load', async () => {
+    const user = await getUser();
+
+    if (user) {
+        logInButton.addEventListener('click', logout);
+        logInButton.textContent = 'Logout';
+    } else {
+        logInButton.addEventListener('click', () => {
+            location.replace('/second-page');
+        });
+        logInButton.textContent = 'Login';
+    }
+
+    createButton.addEventListener('click', () => {
+        location.replace('/create');
+    });
+
+    const posts = await getPosts();
+    for (let post of posts) {
+        const postDiv = renderPostIt(post);
+        bulletin.append(postDiv);
+    }
 });
 
-createForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    location.replace('/second-page');
-});
+
+
+
+
+// logInForm.addEventListener('submit', async (e) => {
+//     e.preventDefault();
+//     location.replace('/second-page');
+// });
+
+// createForm.addEventListener('submit', async (e) => {
+//     e.preventDefault();
+//     location.replace('/second-page');
+// });
 
 // set event listeners
 // get user input

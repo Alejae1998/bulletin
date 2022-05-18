@@ -9,5 +9,5 @@ body {
     width: 75vw;
     min-width: calc(10em + 40px);
     overflow: scroll;
-    background-repeat: repeat-y;
+    background-repeat: no-repeat;
 }

@@ -1,41 +1,34 @@
-import { checkAuth, signInUser, signupUser } from '../fetch-utils.js';
+import { redirectIfLoggedIn, signInUser, signupUser } from '../fetch-utils.js';
 
 const signInForm = document.getElementById('sign-in');
+const signInEmail = document.getElementById('sign-in-email');
+const signInPassword = document.getElementById('sign-in-password');
+
 const signUpForm = document.getElementById('sign-up');
+const signUpEmail = document.getElementById('sign-up-email');
+const signUpPassword = document.getElementById('sign-up-password');
 
-
-checkAuth();
-
-signInForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = new FormData(signInForm);
-    const user = await signInUser(data.get('email'), data.get('password'));
-    if (user) {
-        location.replace('/create');
-    }
-});
-
+redirectIfLoggedIn();
 signUpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const data = new FormData(signUpForm);
 
-    const user = await signupUser(data.get('email'), data.get('password'));
+    const user = await signupUser(signUpEmail.value, signUpPassword.value);
     if (user) {
-        location.replace('/create');
+        redirectIfLoggedIn();
+    } else {
+        console.error(user);
     }
+
+    signInForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const user = await signInUser(signInEmail.value, signInPassword.value);
+        if (user) {
+            redirectIfLoggedIn();
+        } else {
+            console.error(user);
+        }
+    });
 });
-
-async function onLoad() {
-    const data = await fetchPosts();
-}
-onLoad();
-
-const logoutBtn = document.getElementById('logout');
-logoutBtn.addEventListener('click', async () => {
-    await logout();
-});
-
-
 
 // async function onLoad() {
 //     const data = await fetchPost();
