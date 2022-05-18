@@ -25,7 +25,8 @@ postItForm.addEventListener('submit', async (e) => {
         description: data.get('description'),
         contact: data.get('contact'),
     };
-    console.log(newPost);
+    
     const resp = await createPost(newPost);
+    // eslint-disable-next-line no-console
     console.log(resp);
 });
