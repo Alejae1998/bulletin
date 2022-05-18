@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import { getPosts, getUser, logout } from './fetch-utils.js';
+import { checkAuth, fetchPost, getUser, logout } from './fetch-utils.js';
 import { renderPostIt } from './render-utils.js';
 
 // let state
@@ -23,22 +23,20 @@ window.addEventListener('load', async () => {
     }
 
     createButton.addEventListener('click', () => {
+        const user = checkAuth();
+        if (user) window.location.href = '/create';
         location.replace('/create');
     });
 
-    const posts = await getPosts();
+    const posts = await fetchPost();
     for (let post of posts) {
         const postDiv = renderPostIt(post);
         bulletin.append(postDiv);
     }
 });
 
-
-
-
-
 // logInForm.addEventListener('submit', async (e) => {
-//     e.preventDefault();
+    // e.preventDefault();
 //     location.replace('/second-page');
 // });
 

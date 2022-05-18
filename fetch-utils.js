@@ -11,6 +11,7 @@ export function getUser() {
 
 export async function checkAuth() {
     const user = await getUser();
+    if (!user) location.replace('/create');
     console.log(user);
     // if (!user) location.replace('/second-page');
 }
@@ -44,16 +45,18 @@ function checkError({ data, error }) {
     return error ? console.error(error) : data;
 }
 
-export async function getPosts() {
+export async function fetchPost() {
     const resp = await client.from('bulletin_board').select('*');
-    console.log(resp);
 
     return checkError(resp);
 }
 
 export async function createPost(post) {
+  
     const resp = await client.from('bulletin_board').insert(post);
-    return checkError(resp);
+    console.log(resp);
+    return resp.data;
+    
 }
 
 // export async function redirectIfLoggedIn() {

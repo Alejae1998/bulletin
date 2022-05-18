@@ -96,3 +96,15 @@ footer {
 .hide {
     display: none;
 }
+
+button {
+    background-color: rgb(151, 151, 151);
+    color: var(--color-yellow);
+    text-transform: uppercase;
+    border: none;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    min-width: 100px;
+    border-radius: 5px;
+    margin: 5px;
+}
