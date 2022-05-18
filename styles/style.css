@@ -27,13 +27,13 @@ body {
     --gutter: 30px;
     --footer-height: 25px;
     
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Lato', sans-serif;
     background-color: var(--color2);
 }
 
 main {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
@@ -54,11 +54,14 @@ section {
 }
 
 header {
+    margin: 10px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--color3);
     height: var(--header-height);
     box-shadow: var(--shadow);
+    
 }
 
 
@@ -88,4 +91,20 @@ footer {
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
+}
+
+.hide {
+    display: none;
+}
+
+button {
+    background-color: rgb(151, 151, 151);
+    color: var(--color-yellow);
+    text-transform: uppercase;
+    border: none;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    min-width: 100px;
+    border-radius: 5px;
+    margin: 5px;
 }

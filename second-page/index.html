@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+    <link rel="stylesheet" href="./second-page.css">
+        <title>Second page</title>
+    </head>
+    <body>
+        <header></header>
+        <main class="auth-main">
+            <div class="left">
+                <div class="auth-container">
+                    <form id="sign-in">
+                        <h3>Sign In</h3>
+                        <label>Email </label><input type="email" name="email" id="sign-in-email" />
+                        <label>Password </label
+                        ><input type="password" name="password" id="sign-in-password" />
+                        <button>Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="right">
+                <div class="auth-container">
+                    <form id="sign-up">
+                        <h3>Sign Up</h3>
+                        <label>Email </label><input type="email" name="email" id="sign-up-email" />
+                        <label>Password </label
+                        ><input type="password" name="password" id="sign-up-password" />
+                        <button>Submit</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer>
+        </footer>
+        <script type="module" src="./second-page.js"></script>
+    </body>
+</html>

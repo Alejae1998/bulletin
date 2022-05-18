@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../styles/reset.css" />
+        <link rel="stylesheet" href="../styles/style.css" />
+        <link rel="stylesheet" href="../styles/home.css" />
+        <title>Create new post</title>
+    </head>
+    <body>
+        <header>
+            <h1>Create a Post</h1>
+            <div id="nav" class="gutter-right">
+                <button id="logout">Logout</button>
+                <button id="home">Home</button>
+            </div>
+        </header>
+        <main>
+            <form id="post-it-form">
+                <label for="title">
+                    <div>Title</div>
+                    <input type="text" name="title" id="title" />
+                </label>
+                <label for="description">
+                    <div>Description</div>
+                    <input type="text" name="description" id="description" />
+                </label>
+                <label for="contact">
+                    <div>Contact</div>
+                    <input type="text" name="contact" id="contact" />
+                </label>
+                <button>Save</button>
+            </form>
+        </main>
+        <footer>
+            <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
+        </footer>
+        <script type="module" src="./create.js"></script>
+    </body>
+</html>
